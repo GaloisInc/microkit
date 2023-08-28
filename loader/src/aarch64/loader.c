@@ -37,6 +37,9 @@ _Static_assert(sizeof(uintptr_t) == 8 || sizeof(uintptr_t) == 4, "Expect uintptr
         defined(BOARD_qemu_arm_virt_2_cores)
 #define GICD_BASE 0x8010000UL
 #define GICC_BASE 0x8020000UL
+#elif defined(BOARD_rockpro64) /*see line 513 of rockpro64.dts*/
+#define GICD_BASE 0xfee00000UL
+#define GICC_BASE 0xfee10000UL
 #elif defined(BOARD_odroidc2) || defined(BOARD_odroidc2_hyp)
 #define GICD_BASE 0xc4301000UL
 #define GICC_BASE 0xc4302000UL
@@ -57,7 +60,8 @@ _Static_assert(sizeof(uintptr_t) == 8 || sizeof(uintptr_t) == 4, "Expect uintptr
     defined(BOARD_qemu_arm_virt) || \
     defined(BOARD_qemu_arm_virt_cortex_a72) || \
     defined(BOARD_qemu_arm_virt_cortex_a72_hyp) || \
-    defined(BOARD_qemu_arm_virt_2_cores)
+    defined(BOARD_qemu_arm_virt_2_cores) || \
+    defined(BOARD_rockpro64)
     #define GIC_V2
 #endif
 
@@ -183,7 +187,8 @@ putc(uint8_t ch)
 #elif defined(BOARD_qemu_arm_virt) || \
       defined(BOARD_qemu_arm_virt_cortex_a72) || \
       defined(BOARD_qemu_arm_virt_cortex_a72_hyp) || \
-      defined(BOARD_qemu_arm_virt_2_cores)
+      defined(BOARD_qemu_arm_virt_2_cores) || \
+      defined(BOARD_rockpro64)
 #define UART_BASE 0x9000000
 #define UARTDR 0x000
 #define UARTFR 0x018

@@ -178,7 +178,7 @@ SUPPORTED_BOARDS = (
         name="ultra96v2",
         arch=BoardArch.AARCH64,
         gcc_flags="GCC_CPU=cortex-a53",
-        loader_link_address=0x40000000,
+        loader_link_address=0x9000000,
         kernel_options = {
             "KernelPlatform": "zynqmp",
             "KernelARMPlatform": "ultra96v2",
@@ -215,6 +215,19 @@ SUPPORTED_BOARDS = (
             "KernelArmHypervisorSupport": True,
             "KernelArmVtimerUpdateVOffset": False,
             "QEMU_MEMORY": 2048,
+        },
+        examples = {}
+    ),
+    BoardInfo(
+        name="rockpro64",
+        arch=BoardArch.AARCH64,
+        gcc_flags="GCC_CPU=cortex-a53",
+        loader_link_address=0x10000000,
+        kernel_options = {
+            "KernelPlatform": "rockpro64",
+            "KernelIsMCS": True,
+            # The kernel will default to AARCH32, which is why we specify AARCH64
+            "KernelSel4Arch": "aarch64",
         },
         examples = {}
     ),
