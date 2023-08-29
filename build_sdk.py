@@ -222,7 +222,7 @@ SUPPORTED_BOARDS = (
         name="rockpro64",
         arch=BoardArch.AARCH64,
         gcc_flags="GCC_CPU=cortex-a53",
-        loader_link_address=0x10000000,
+        loader_link_address=0x20000000,
         kernel_options = {
             "KernelPlatform": "rockpro64",
             "KernelIsMCS": True,
