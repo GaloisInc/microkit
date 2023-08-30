@@ -84,6 +84,7 @@ SUPPORTED_BOARDS = (
     #     },
     #     examples = {
     #         "ethernet": Path("example/imx8mm/passive_server")
+    #         "passive_server": Path("example/imx8mm/passive_server")
     #     }
     # )
 )
